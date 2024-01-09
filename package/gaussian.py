@@ -1,11 +1,11 @@
 import math
 import matplotlib.pyplot as plt
+from distribution import Distribution
 
-class Gaussian():
+
+class Gaussian(Distribution):
     def __init__(self, mu=0, sigma=1):
-        self.mean=mu
-        self.stdev=sigma
-        self.data=[]
+        Distribution.__init__(self,mu, sigma)
 
     def calculate_mean(self):
         avg=float(sum(self.data)/len(self.data))
@@ -27,20 +27,6 @@ class Gaussian():
         self.stdev=st_dev
         
         return self.stdev
-    
-    def read_data_file(self, file_name, sample=True):
-        # This code opens a data file and appends the data to a list called data_list
-        with open(file_name) as file:
-            data_list = []
-            line = file.readline()
-            while line:
-                data_list.append(int(line))
-                line = file.readline()
-        file.close()
-        
-        self.data=data_list
-        self.mean=self.calculate_mean()
-        self.stdev=self.calculate_stdev(sample)
 
     def plot_histogram(self):
         """Method to output a histogram of the instance variable data using 
