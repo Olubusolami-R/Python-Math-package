@@ -1,11 +1,11 @@
 import math
 import matplotlib.pyplot as plt
-from distribution import Distribution
+from .generaldistribution import GeneralDistribution
 
 
-class Gaussian(Distribution):
+class Gaussian(GeneralDistribution):
     def __init__(self, mu=0, sigma=1):
-        Distribution.__init__(self,mu, sigma)
+        GeneralDistribution.__init__(self,mu, sigma)
 
     def calculate_mean(self):
         avg=float(sum(self.data)/len(self.data))

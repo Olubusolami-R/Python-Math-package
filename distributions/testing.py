@@ -1,4 +1,4 @@
-from gaussian import Gaussian
+from distributions.gaussiandistribution import Gaussian
 
 import unittest
 
